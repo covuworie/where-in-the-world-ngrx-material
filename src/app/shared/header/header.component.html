@@ -1,0 +1,34 @@
+<header *ngIf="headerFacade.vm$ | async as vm">
+  <div>
+    <a routerLink="/" class>Where in the world?</a>
+    <button
+      *ngIf="vm.theme === 'theme-light'; else darkTemplate"
+      (click)="changeTheme('theme-dark')"
+    >
+      <fa-icon [icon]="faMoon" class="moon"></fa-icon><span>Dark Mode</span>
+    </button>
+    <ng-template #darkTemplate>
+      <button (click)="changeTheme('theme-light')">
+        <fa-icon [icon]="faSun" class="sun"></fa-icon><span>Light Mode</span>
+      </button>
+    </ng-template>
+  </div>
+  <nav>
+    <div>
+      <a
+        routerLink="/countries"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Countries</a
+      >
+      <a routerLink="/country-visits" routerLinkActive="active-link"
+        >Country Visits</a
+      >
+      <a routerLink="/wish-list" routerLinkActive="active-link"
+        ><fa-icon [icon]="faHeart"></fa-icon> Wish List ({{
+          vm.wishListCount
+        }})</a
+      >
+    </div>
+  </nav>
+</header>

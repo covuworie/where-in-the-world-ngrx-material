@@ -1,0 +1,14 @@
+<main>
+  <br />
+  <form *ngFor="let visit of visitGroups; let i = index">
+    <app-country-visit
+      [visit]="visit"
+      [validCountryNames]="validCountryNames"
+      (delete)="onDelete(i)"
+      (formChange)="onFormChange(i)"
+    ></app-country-visit>
+  </form>
+  <button type="button" class="add" (click)="onAdd()">
+    <fa-icon [icon]="faPlus"></fa-icon> Add
+  </button>
+</main>

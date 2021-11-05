@@ -1,0 +1,3 @@
+<main *ngIf="wishListFacade.countries$ | async as countries">
+  <app-country-grid [countries]="countries"></app-country-grid>
+</main>

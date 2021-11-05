@@ -1,0 +1,11 @@
+<main *ngIf="countrySummaryFacade.countries$ | async as countries">
+  <div class="search">
+    <app-country-search
+      (countrySearchChange)="countrySummaryFacade.filterByPartialName($event)"
+    ></app-country-search>
+    <app-region-filter
+      (regionChange)="countrySummaryFacade.filterByRegion($event)"
+    ></app-region-filter>
+  </div>
+  <app-country-grid [countries]="countries"></app-country-grid>
+</main>
