@@ -26,9 +26,6 @@ export class CountrySummaryComponent implements OnInit {
 
   // private fields
   private readonly wishListHeartOff = {
-    position: 'absolute',
-    bottom: '12rem',
-    right: '12rem',
     stroke: '#ff0000',
     color: '#faa0a0',
   };

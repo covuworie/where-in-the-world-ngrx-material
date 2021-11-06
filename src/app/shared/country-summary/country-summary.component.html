@@ -1,16 +1,35 @@
-<a routerLink="/countries/{{ country.name | hyphenateUri }}"
-  ><img [src]="country.flagUrl" alt="{{ country.name }} flag"
-/></a>
-<a routerLink="/countries/{{ country.name | hyphenateUri }}"
-  ><h3>{{ country.name }}</h3>
-</a>
-<ul>
-  <li><b>Population</b>: {{ country.population }}</li>
-  <li><b>Region</b>: {{ country.region }}</li>
-  <li><b>Capital</b>: {{ country.capital }}</li>
-</ul>
-<fa-icon
-  [icon]="faHeart"
-  size="2x"
-  (click)="onToggleWishList(country.name)"
-></fa-icon>
+<mat-card>
+  <a routerLink="/countries/{{ country.name | hyphenateUri }}"
+    ><img mat-card-image [src]="country.flagUrl" alt="{{ country.name }} flag"
+  /></a>
+  <mat-card-content>
+    <mat-card-title
+      ><a mat-title routerLink="/countries/{{ country.name | hyphenateUri }}"
+        ><h2 class="mat-title">{{ country.name }}</h2>
+      </a></mat-card-title
+    >
+
+    <mat-list role="list" dense>
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Population</b>:
+        <span class="mat-body-1">{{ country.population }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Region</b>:
+        <span class="mat-body-1">{{ country.region }}</span>
+      </mat-list-item>
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Capital</b>:
+        <span class="mat-body-1">{{ country.capital }}</span></mat-list-item
+      >
+    </mat-list>
+
+    <mat-card-actions align="end">
+      <fa-icon
+        [icon]="faHeart"
+        size="2x"
+        (click)="onToggleWishList(country.name)"
+      ></fa-icon>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

@@ -40,3 +40,14 @@ a:hover {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// https://pretagteam.com/question/remove-padding-between-the-list-item-in-angular-material
+/* Top padding of <mat-list> */
+.mat-list-base {
+  padding-top: 0 !important;
+}
+
+/* Padding of each <mat-list-item> */
+.mat-list-item-content {
+  padding: 0 !important;
+}
