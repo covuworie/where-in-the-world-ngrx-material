@@ -20,19 +20,6 @@ header {
       background-color: transparent;
       color: var(--color-primary);
 
-      @media only screen and (max-width: 500px) {
-        padding: 20rem;
-      }
-
-      span {
-        margin-left: 5rem;
-
-        @media only screen and (max-width: 500px) {
-          margin-left: 0;
-          display: none;
-        }
-      }
-
       &:hover {
         background-color: var(--color-dull);
       }
@@ -68,7 +55,6 @@ a:hover {
   background-color: var(--color-dull);
 }
 
-.moon,
-.sun {
-  color: var(--color-primary);
+mat-icon {
+  font-size: xx-large;
 }

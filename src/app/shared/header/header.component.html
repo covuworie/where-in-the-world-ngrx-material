@@ -5,11 +5,13 @@
       *ngIf="vm.theme === 'theme-light'; else darkTemplate"
       (click)="changeTheme('theme-dark')"
     >
-      <fa-icon [icon]="faMoon" class="moon"></fa-icon><span>Dark Mode</span>
+      <mat-icon aria-hidden="false" aria-label="dark mode">dark_mode</mat-icon>
     </button>
     <ng-template #darkTemplate>
       <button (click)="changeTheme('theme-light')">
-        <fa-icon [icon]="faSun" class="sun"></fa-icon><span>Light Mode</span>
+        <mat-icon aria-hidden="false" aria-label="light mode"
+          >light_mode</mat-icon
+        >
       </button>
     </ng-template>
   </div>
@@ -25,9 +27,14 @@
         >Country Visits</a
       >
       <a routerLink="/wish-list" routerLinkActive="active-link"
-        ><fa-icon [icon]="faHeart"></fa-icon> Wish List ({{
-          vm.wishListCount
-        }})</a
+        ><mat-icon
+          [matBadge]="vm.wishListCount"
+          [matBadgeHidden]="vm.wishListCount === 0"
+          matBadgeColor="warn"
+          aria-hidden="false"
+          aria-label="favorite"
+          >{{ vm.wishListCount > 0 ? "favorite" : "favorite_border" }}</mat-icon
+        ></a
       >
     </div>
   </nav>
