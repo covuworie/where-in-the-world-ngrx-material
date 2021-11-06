@@ -25,11 +25,17 @@
     </mat-list>
 
     <mat-card-actions align="end">
-      <fa-icon
-        [icon]="faHeart"
-        size="2x"
+      <mat-icon
+        aria-hidden="false"
+        aria-label="favorite"
+        color="warn"
+        matTooltip="{{ country.onWishList ? '' : 'Add to wish list' }}"
+        matTooltipPosition="above"
+        matTooltipShowDelay="2000"
+        matTooltipClass="custom-tooltip"
         (click)="onToggleWishList(country.name)"
-      ></fa-icon>
+        >{{ country.onWishList ? "favorite" : "favorite_border" }}</mat-icon
+      >
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
