@@ -2,13 +2,14 @@
   <div>
     <a routerLink="/" class>Where in the world?</a>
     <button
+      mat-icon-button
       *ngIf="vm.theme === 'theme-light'; else darkTemplate"
       (click)="changeTheme('theme-dark')"
     >
       <mat-icon aria-hidden="false" aria-label="dark mode">dark_mode</mat-icon>
     </button>
     <ng-template #darkTemplate>
-      <button (click)="changeTheme('theme-light')">
+      <button mat-icon-button (click)="changeTheme('theme-light')">
         <mat-icon aria-hidden="false" aria-label="light mode"
           >light_mode</mat-icon
         >

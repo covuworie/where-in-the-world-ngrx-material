@@ -14,16 +14,6 @@ header {
         background-color: transparent;
       }
     }
-
-    button {
-      border: none;
-      background-color: transparent;
-      color: var(--color-primary);
-
-      &:hover {
-        background-color: var(--color-dull);
-      }
-    }
   }
 
   nav {
