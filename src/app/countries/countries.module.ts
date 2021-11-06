@@ -7,6 +7,7 @@ import { CountryDetailComponent } from './country-detail/country-detail.componen
 import { SharedModule } from '../shared/shared.module';
 import { CountrySearchComponent } from './country-search/country-search.component';
 import { RegionFilterComponent } from './region-filter/region-filter.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { RegionFilterComponent } from './region-filter/region-filter.component';
     CountrySearchComponent,
     RegionFilterComponent,
   ],
-  imports: [CommonModule, CountriesRoutingModule, SharedModule],
+  imports: [CommonModule, CountriesRoutingModule, MaterialModule, SharedModule],
 })
 export class CountriesModule {}
