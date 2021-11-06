@@ -1,6 +1,6 @@
 <header *ngIf="headerFacade.vm$ | async as vm">
   <div>
-    <a routerLink="/" class>Where in the world?</a>
+    <a routerLink="/" class="mat-headline">Where in the world?</a>
     <button
       mat-icon-button
       *ngIf="vm.theme === 'theme-light'; else darkTemplate"
