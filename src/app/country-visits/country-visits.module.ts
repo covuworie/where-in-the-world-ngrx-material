@@ -10,12 +10,14 @@ import { StoreModule } from '@ngrx/store';
 import * as fromCountryVisit from '../country-visits/state/country-visit.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CountryVisitEffects } from './state/country-visit.effects';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [CountryVisitsComponent, CountryVisitComponent],
   imports: [
     CommonModule,
     CountriesVisitedRoutingModule,
+    MaterialModule,
     ReactiveFormsModule,
     SharedModule,
     StoreModule.forFeature(

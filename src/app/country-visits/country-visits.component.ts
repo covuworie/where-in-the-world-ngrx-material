@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
 import * as CountryVisitActions from './state/country-visit.actions';
 import * as CountryVisitSelectors from './state/country-visit.selectors';
@@ -20,7 +19,6 @@ import { YearsService } from '../countries/shared/years.service';
 })
 export class CountryVisitsComponent implements OnInit, OnDestroy {
   // public properties
-  faPlus = faPlus;
   validCountryNames: string[] = [];
   visits = this.fb.array([]);
   vm$: Observable<CountryVisit[]> = of([]);
