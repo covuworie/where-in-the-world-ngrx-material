@@ -1,3 +1,5 @@
+$gap: 40rem;
+
 .country-details-grid {
   display: grid;
   grid-template-areas:
@@ -6,23 +8,23 @@
     "lang-money"
     "codes"
     "borders";
-  margin: 40rem;
+  margin: $gap;
 
-  @media only screen and (min-width: 600px) and (max-width: 1000px) {
+  @media only screen and (min-width: 800px) and (max-width: 1000px) {
     grid-template-areas:
       "flag flag    overview"
       "lang-money codes codes"
       "borders borders borders";
-    column-gap: 40rem;
-    row-gap: 40rem;
+    column-gap: $gap;
+    row-gap: $gap;
   }
 
   @media only screen and (min-width: 1000px) {
     grid-template-areas:
       "flag    overview lang-money codes"
       "borders borders  borders    borders";
-    column-gap: 40rem;
-    row-gap: 40rem;
+    column-gap: $gap;
+    row-gap: $gap;
   }
 }
 
@@ -33,57 +35,37 @@
 
 .overview {
   grid-area: overview;
+  margin-bottom: $gap;
 }
 
 .lang-money {
   grid-area: lang-money;
+  margin-bottom: $gap;
 }
 
 .codes {
   grid-area: codes;
+  margin-bottom: $gap;
 }
 
 .borders {
   grid-area: borders;
+  margin-bottom: $gap;
 
-  @media only screen and (min-width: 600px) {
-    ul {
+  img {
+    width: 25rem;
+    padding-right: 5rem;
+  }
+
+  @media only screen and (min-width: 800px) {
+    mat-list {
       display: flex;
-      flex-wrap: wrap;
-
-      li {
-        display: inline;
-      }
+      flex-direction: row;
     }
-  }
-}
 
-div {
-  font-size: 16rem;
-
-  h1 {
-    font-size: 25rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-
-    li {
-      padding-bottom: 15rem;
-      display: block;
-
-      a {
-        @media only screen and (min-width: 600px) {
-          display: inline;
-          padding: 0 16rem 0 0;
-        }
-
-        img {
-          width: 20rem;
-          padding-right: 3rem;
-        }
-      }
+    mat-list-item {
+      width: auto;
+      margin-right: 20rem;
     }
   }
 }

@@ -3,44 +3,80 @@
   *ngIf="countryDetailFacade.country$ | async as country"
 >
   <img class="flag" [src]="country.flagUrl" alt="{{ country.name }} flag" />
-  <div lass="overview">
-    <h1>{{ country.name }}</h1>
-    <ul>
-      <li><b>Native Name</b>: {{ country.nativeName }}</li>
-      <li><b>Population</b>: {{ country.population }}</li>
-      <li><b>Region</b>: {{ country.region }}</li>
-      <li><b>Sub Region</b>: {{ country.subRegion }}</li>
-      <li><b>Capital</b>: {{ country.capital }}</li>
-    </ul>
+  <div class="overview">
+    <h1 class="mat-headline">{{ country.name }}</h1>
+    <mat-list role="list">
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Native Name</b>:
+        <span class="mat-body-1">{{ country.nativeName }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Population</b>:
+        <span class="mat-body-1">{{ country.population }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Region</b>:
+        <span class="mat-body-1">{{ country.region }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Sub Region</b>:
+        <span class="mat-body-1">{{ country.subRegion }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Capital</b>:
+        <span class="mat-body-1">{{ country.capital }}</span></mat-list-item
+      >
+    </mat-list>
   </div>
   <div class="lang-money">
-    <ul>
-      <li><b>Languages</b>: {{ country.languageNames.join(", ") }}</li>
-      <li>
-        <b>Currencies</b>:
-        {{ country.currencyNamesAndSymbols.join(", ") }}
-      </li>
-    </ul>
+    <mat-list role="list">
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Languages</b>:
+        <span class="mat-body-1">{{
+          country.languageNames.join(", ")
+        }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem">
+        <b class="mat-body-2">Currencies</b>:
+        <span class="mat-body-1"
+          >{{ country.currencyNamesAndSymbols.join(", ") }}
+        </span></mat-list-item
+      >
+    </mat-list>
   </div>
   <div class="codes">
-    <ul>
-      <li><b>Calling Code</b>: {{ country.callingCode }}</li>
-      <li><b>ISO 3166-1 alpha-3 Code</b>: {{ country.alpha3Code }}</li>
-      <li><b>Top Level Domain</b>: {{ country.topLevelDomain }}</li>
-    </ul>
+    <mat-list role="list">
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Calling Code</b>:
+        <span class="mat-body-1">{{ country.callingCode }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">ISO 3166-1 alpha-3 Code</b>:
+        <span class="mat-body-1">{{ country.alpha3Code }}</span></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><b class="mat-body-2">Top Level Domain</b>:
+        <span class="mat-body-1">{{
+          country.topLevelDomain
+        }}</span></mat-list-item
+      >
+    </mat-list>
   </div>
   <div class="borders">
-    <p><b class="bordering-countries">Bordering Countries</b></p>
-    <ul>
-      <li *ngFor="let borderingCountry of country.borderingCountries">
+    <p><b class="mat-body-2 bordering-countries">Bordering Countries</b></p>
+    <mat-list role="list">
+      <mat-list-item
+        role="listitem"
+        *ngFor="let borderingCountry of country.borderingCountries"
+      >
         <a routerLink="/countries/{{ borderingCountry.name | hyphenateUri }}">
           <img
             [src]="borderingCountry.flagUrl"
             alt="{{ borderingCountry.name }} flag"
           />
-          {{ borderingCountry.name }}
+          <span class="mat-body-1">{{ borderingCountry.name }}</span>
         </a>
-      </li>
-    </ul>
+      </mat-list-item>
+    </mat-list>
   </div>
 </main>

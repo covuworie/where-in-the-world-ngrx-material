@@ -52,6 +52,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding: 0 !important;
 }
 
+mat-list-item span {
+  padding-left: 5rem;
+}
+
 .custom-tooltip{
   background-color: var(--primary);
   color: var(--color-primary);
