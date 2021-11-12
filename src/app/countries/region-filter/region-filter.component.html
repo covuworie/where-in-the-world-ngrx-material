@@ -1,22 +1,12 @@
-<div (click)="onToggleDropdown()">
-  <input
-    type="radio"
-    [name]="selectedRegion"
-    checked
-    (change)="onChangeRegion(selectedRegion)"
-  />
-  <label [for]="selectedRegion">{{ selectedRegion }} <span>▼</span></label>
-</div>
-<div *ngFor="let region of regions">
-  <ng-container *ngIf="onToggleRegion(region)">
-    <input
-      type="radio"
-      [name]="region"
-      [id]="region"
-      [value]="region"
-      (change)="onChangeRegion(regionEl.value)"
-      #regionEl
-    />
-    <label [for]="region">{{ region }} <span hidden>▼</span></label>
-  </ng-container>
-</div>
+<mat-form-field>
+  <mat-label>Region</mat-label>
+  <mat-select
+    [(value)]="selectedRegion"
+    (valueChange)="regionChange.emit(this.selectedRegion)"
+  >
+    <mat-option value="all-regions">All Regions</mat-option>
+    <mat-option [value]="region" *ngFor="let region of regions">{{
+      region | titlecase
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>

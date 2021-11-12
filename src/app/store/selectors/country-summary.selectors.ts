@@ -26,8 +26,8 @@ export const selectCountrySummaryViewModels = createSelector(
 
 export const selectCountrySummaryViewModelsByRegion = (region: string) =>
   createSelector(selectCountrySummaryViewModels, (countries) =>
-    region !== 'All Regions'
-      ? countries.filter((country) => country.region === region)
+    region !== 'all-regions'
+      ? countries.filter((country) => country.region.toLowerCase() === region)
       : countries
   );
 
