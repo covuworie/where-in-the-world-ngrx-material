@@ -1,5 +1,5 @@
 mat-card {
-  height: 400px;
+  height: 500px;
 }
 
 img {
@@ -10,6 +10,9 @@ img {
 
 mat-icon {
   font-size: xx-large;
+  position: absolute;
+  bottom: 12rem;
+  right: 12rem;
 }
 
 mat-tooltip {

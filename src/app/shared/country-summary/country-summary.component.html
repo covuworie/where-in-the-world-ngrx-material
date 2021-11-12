@@ -8,7 +8,6 @@
         ><h2 class="mat-title">{{ country.name }}</h2>
       </a></mat-card-title
     >
-
     <mat-list role="list" dense>
       <mat-list-item role="listitem"
         ><b class="mat-body-2">Population</b>:
@@ -23,19 +22,18 @@
         <span class="mat-body-1">{{ country.capital }}</span></mat-list-item
       >
     </mat-list>
-
-    <mat-card-actions align="end">
-      <mat-icon
-        aria-hidden="false"
-        aria-label="favorite"
-        color="warn"
-        matTooltip="{{ country.onWishList ? '' : 'Add to wish list' }}"
-        matTooltipPosition="above"
-        matTooltipShowDelay="2000"
-        matTooltipClass="custom-tooltip"
-        (click)="onToggleWishList(country.name)"
-        >{{ country.onWishList ? "favorite" : "favorite_border" }}</mat-icon
-      >
-    </mat-card-actions>
   </mat-card-content>
+  <mat-card-actions>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="favorite"
+      color="warn"
+      matTooltip="{{ country.onWishList ? '' : 'Add to wish list' }}"
+      matTooltipPosition="above"
+      matTooltipShowDelay="2000"
+      matTooltipClass="custom-tooltip"
+      (click)="onToggleWishList(country.name)"
+      >{{ country.onWishList ? "favorite" : "favorite_border" }}</mat-icon
+    >
+  </mat-card-actions>
 </mat-card>
