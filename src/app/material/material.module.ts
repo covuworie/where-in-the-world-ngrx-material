@@ -3,6 +3,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -12,6 +13,7 @@ const material = [
   MatButtonModule,
   MatCardModule,
   MatIconModule,
+  MatInputModule,
   MatListModule,
   MatSelectModule,
   MatTooltipModule,
