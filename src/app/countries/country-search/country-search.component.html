@@ -1,10 +1,10 @@
-<div>
-  <mat-icon aria-hidden="false" aria-label="search">search</mat-icon>
+<mat-form-field>
+  <mat-label><mat-icon>search</mat-icon> Search for a country...</mat-label>
   <input
-    class="search-country"
     type="text"
-    placeholder="Search for a country..."
+    matInput
+    placeholder="Ex. United States"
     (keyup)="countrySearchChange.emit(countrySearch.value)"
     #countrySearch
   />
-</div>
+</mat-form-field>
