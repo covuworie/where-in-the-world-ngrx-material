@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { YearsService } from 'src/app/countries/shared/years.service';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Observable, of } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 export class MaxDurationMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -30,12 +32,12 @@ export class MaxDurationMatcher implements ErrorStateMatcher {
   templateUrl: './country-visit.component.html',
   styleUrls: ['./country-visit.component.scss'],
 })
-export class CountryVisitComponent {
+export class CountryVisitComponent implements OnInit {
   // public properties
-  countriesAutoComplete: string[] = [];
   @Output() delete = new EventEmitter<void>();
-  maxDurationMatcher = new MaxDurationMatcher();
+  filteredCountries: Observable<string[]> = of([]);
   @Output() formChange = new EventEmitter<void>();
+  maxDurationMatcher = new MaxDurationMatcher();
   @Input() validCountryNames: string[] = [];
   @Input() visit = new FormGroup({});
 
@@ -54,20 +56,24 @@ export class CountryVisitComponent {
     return YearsService.minYear;
   }
 
-  onCountrySearch(partialName: string) {
-    if (this.validCountryNames.includes(partialName)) {
-      this.countriesAutoComplete = [];
-      return;
-    }
-
-    this.countriesAutoComplete = this.validCountryNames.filter((name) =>
-      name.toLowerCase().includes(partialName.toLowerCase())
+  ngOnInit() {
+    this.filteredCountries = this.visit.get('country')!.valueChanges.pipe(
+      startWith(''),
+      map((partialName: string) => {
+        return this.validCountryNames.filter((name) =>
+          name.toLowerCase().includes(partialName.toLowerCase())
+        );
+      })
     );
   }
 
-  onCountrySelect(name: string) {
-    this.visit.setValue({ ...this.visit.value, country: name });
+  setCountryAndEmit(countryInput: HTMLInputElement) {
+    // Flicker when a country is selected without hitting a key is not a bug in my code.
+    // Investigation shows it's due to this issue. It looks to be fixed now. Not sure what
+    // version of Angular the fix will appear in:
+    // https://github.com/angular/components/issues/18313
+    this.visit.setValue({ ...this.visit.value, country: countryInput.value });
     this.formChange.emit();
-    this.countriesAutoComplete = [];
+    countryInput.blur(); // force loss of focus once value is selected
   }
 }

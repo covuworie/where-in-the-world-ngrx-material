@@ -1,4 +1,4 @@
-<fieldset [formGroup]="visit" (change)="formChange.emit()">
+<fieldset [formGroup]="visit">
   <legend>Enter Visit</legend>
   <mat-form-field>
     <mat-label>Year</mat-label>
@@ -10,6 +10,7 @@
       autocomplete="off"
       formControlName="year"
       placeholder="Ex. 2000"
+      (change)="formChange.emit()"
     />
     <mat-error
       *ngIf="
@@ -26,26 +27,38 @@
       <strong>{{ getMaxDuration(visit.value.year) }}</strong>
     </mat-error>
   </mat-form-field>
-  <div>
-    <label for="country">Country</label>
+  <mat-form-field>
+    <mat-label><mat-icon>search</mat-icon> Search for a country...</mat-label>
     <input
       type="text"
-      name="country"
-      placeholder="Search for a country..."
-      autocomplete="off"
+      matInput
+      required
+      placeholder="Ex. United States"
       formControlName="country"
-      (keyup)="onCountrySearch(countrySearch.value)"
-      #countrySearch
+      [matAutocomplete]="autoFilterCountry"
+      (change)="setCountryAndEmit(countryInput)"
+      #countryInput
     />
-    <ul>
-      <li
-        *ngFor="let country of countriesAutoComplete"
-        (click)="onCountrySelect(country)"
+    <mat-autocomplete
+      #autoFilterCountry="matAutocomplete"
+      (optionSelected)="setCountryAndEmit(countryInput)"
+    >
+      <mat-option
+        *ngFor="let country of filteredCountries | async"
+        [value]="country"
       >
         {{ country }}
-      </li>
-    </ul>
-  </div>
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error
+      *ngIf="
+        visit.get('country')?.hasError('required') ||
+        visit.get('country')?.hasError('forbiddenCountry')
+      "
+    >
+      Please select or enter a valid country
+    </mat-error>
+  </mat-form-field>
   <mat-form-field>
     <mat-label>Duration (days)</mat-label>
     <input
@@ -57,6 +70,7 @@
       formControlName="duration"
       placeholder="Ex. 10"
       [errorStateMatcher]="maxDurationMatcher"
+      (change)="formChange.emit()"
     />
     <mat-error>
       Duration must be at least <strong>1</strong> and at most
