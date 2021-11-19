@@ -1,23 +1,27 @@
-<header *ngIf="headerFacade.vm$ | async as vm">
-  <div>
-    <a routerLink="/" class="mat-headline">Where in the world?</a>
-    <button
-      mat-icon-button
-      *ngIf="vm.theme === 'theme-light'; else darkTemplate"
-      (click)="changeTheme('theme-dark')"
-    >
-      <mat-icon aria-hidden="false" aria-label="dark mode">dark_mode</mat-icon>
-    </button>
-    <ng-template #darkTemplate>
-      <button mat-icon-button (click)="changeTheme('theme-light')">
-        <mat-icon aria-hidden="false" aria-label="light mode"
-          >light_mode</mat-icon
+<mat-toolbar *ngIf="headerFacade.vm$ | async as vm">
+  <mat-toolbar-row>
+    <header>
+      <a routerLink="/" class="mat-headline">Where in the world?</a>
+      <button
+        mat-icon-button
+        *ngIf="vm.theme === 'theme-light'; else darkTemplate"
+        (click)="changeTheme('theme-dark')"
+      >
+        <mat-icon aria-hidden="false" aria-label="dark mode"
+          >dark_mode</mat-icon
         >
       </button>
-    </ng-template>
-  </div>
-  <nav>
-    <div>
+      <ng-template #darkTemplate>
+        <button mat-icon-button (click)="changeTheme('theme-light')">
+          <mat-icon aria-hidden="false" aria-label="light mode"
+            >light_mode</mat-icon
+          >
+        </button>
+      </ng-template>
+    </header>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <nav>
       <a
         routerLink="/countries"
         routerLinkActive="active-link"
@@ -37,6 +41,6 @@
           >{{ vm.wishListCount > 0 ? "favorite" : "favorite_border" }}</mat-icon
         ></a
       >
-    </div>
-  </nav>
-</header>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>
