@@ -9,7 +9,7 @@ fieldset {
 
   padding: 20rem;
   margin-bottom: 40rem;
-  border: 1px solid #ddd;
+  border: 1px solid;
 }
 
 label {
@@ -17,7 +17,6 @@ label {
 }
 
 .delete {
-  color: var(--color-primary);
   max-width: 625rem;
 }
 

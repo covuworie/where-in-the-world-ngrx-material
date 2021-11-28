@@ -1,23 +1,16 @@
-<mat-toolbar *ngIf="headerFacade.vm$ | async as vm">
+<mat-toolbar *ngIf="headerFacade.vm$ | async as vm" color="primary">
   <mat-toolbar-row>
     <header>
       <a routerLink="/" class="mat-headline">Where in the world?</a>
-      <button
-        mat-icon-button
-        *ngIf="vm.theme === 'theme-light'; else darkTemplate"
-        (click)="changeTheme('theme-dark')"
-      >
-        <mat-icon aria-hidden="false" aria-label="dark mode"
+      <div>
+        <mat-icon [inline]="true" aria-hidden="false" aria-label="light mode"
+          >light_mode</mat-icon
+        >
+        <mat-slide-toggle #themeToggle [formControl]="themeControl"></mat-slide-toggle>
+        <mat-icon [inline]="true" aria-hidden="false" aria-label="dark mode"
           >dark_mode</mat-icon
         >
-      </button>
-      <ng-template #darkTemplate>
-        <button mat-icon-button (click)="changeTheme('theme-light')">
-          <mat-icon aria-hidden="false" aria-label="light mode"
-            >light_mode</mat-icon
-          >
-        </button>
-      </ng-template>
+      </div>
     </header>
   </mat-toolbar-row>
   <mat-toolbar-row>

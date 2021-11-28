@@ -5,32 +5,13 @@ html {
   font-size: 1px;
 }
 
-.theme-light {
-  --primary: #2577c1;
-  --secondary-bg: #fff;
-  --color-primary: #000;
-  --color-dull: #ddd;
-  --theme: #fff;
-}
-
-.theme-dark {
-  --primary: #424242;
-  --secondary-bg: #424242;
-  --color-primary: #fff;
-  --color-dull: #696969;
-  --theme: #424242;
-}
-
 body {
   font-size: 16rem;
-
-  color: var(--color-primary);
-  background-color: var(--secondary-bg);
 }
 
 a {
   text-decoration: none;
-  color: var(--color-primary);
+  color: #fff;
 }
 
 button:hover,
@@ -56,7 +37,3 @@ mat-list-item span {
   padding-left: 5rem;
 }
 
-.custom-tooltip{
-  background-color: var(--primary);
-  color: var(--color-primary);
-}
