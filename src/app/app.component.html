@@ -1,9 +1,8 @@
 <!--Wrapper element with class needed for background theming. See the rest
   of the code in headercomponent.(html|.ts):
 https://zoaibkhan.com/blog/angular-material-dark-mode-in-3-steps/-->
-<div class="mat-app-background">
-  <ngx-spinner></ngx-spinner>
+<div fxLayout="column" fxLayoutGap="20rem" class="mat-app-background">
+  <ngx-spinner fxFlexOffset="-20rem"></ngx-spinner>
   <app-header></app-header>
   <router-outlet></router-outlet>
 </div>
-

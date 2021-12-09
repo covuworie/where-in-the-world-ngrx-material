@@ -1,6 +1,6 @@
-<div class="country-grid">
-  <app-country-summary
-    *ngFor="let country of countries"
-    [country]="country"
-  ></app-country-summary>
-</div>
+<app-country-summary
+  fxFlex.lt-md="1 1 50%"
+  fxFlex.gt-sm="1 1 25%"
+  *ngFor="let country of countries"
+  [country]="country"
+></app-country-summary>

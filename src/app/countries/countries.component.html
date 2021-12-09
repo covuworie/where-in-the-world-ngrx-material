@@ -1,11 +1,25 @@
 <main *ngIf="countrySummaryFacade.countries$ | async as countries">
-  <div class="search">
+  <div
+    fxLayout="column"
+    fxLayout.gt-xs="row wrap"
+    fxLayoutAlign.gt-xs="space-between"
+    fxLayoutGap="40rem"
+  >
     <app-country-search
+      fxFlex.gt-xs="0 0 250rem"
       (countrySearchChange)="countrySummaryFacade.filterByPartialName($event)"
     ></app-country-search>
     <app-region-filter
+      fxFlex.gt-xs="0 0 150rem"
       (regionChange)="countrySummaryFacade.filterByRegion($event)"
     ></app-region-filter>
   </div>
-  <app-country-grid [countries]="countries"></app-country-grid>
+
+  <app-country-grid class="country-grid"
+    fxLayout="column"
+    fxLayout.gt-xs="row wrap"
+    fxLayoutAlign="start"
+    fxLayoutGap="20rem grid"
+    [countries]="countries"
+  ></app-country-grid>
 </main>

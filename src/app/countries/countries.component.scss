@@ -1,15 +1,7 @@
-$grid-gap: 40rem;
-
 main {
-  margin: $grid-gap;
+  margin: 20rem;
 }
 
-.search {
-  display: flex;
-  flex-direction: column;
-
-  @media only screen and (min-width: 600px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.country-grid {
+  padding: 40rem 0;
 }

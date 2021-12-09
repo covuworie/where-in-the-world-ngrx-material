@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CountrySearchComponent } from './country-search/country-search.component';
 import { RegionFilterComponent } from './region-filter/region-filter.component';
 import { MaterialModule } from '../material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,12 @@ import { MaterialModule } from '../material/material.module';
     CountrySearchComponent,
     RegionFilterComponent,
   ],
-  imports: [CommonModule, CountriesRoutingModule, MaterialModule, SharedModule],
+  imports: [
+    CommonModule,
+    CountriesRoutingModule,
+    MaterialModule,
+    SharedModule,
+    FlexLayoutModule,
+  ],
 })
 export class CountriesModule {}

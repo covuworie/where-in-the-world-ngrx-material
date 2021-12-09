@@ -9,9 +9,15 @@ body {
   font-size: 16rem;
 }
 
+// Go with this dark-grey that looks reasonable for both light and dark themes
+// as a 'semi-hack'. With more time follow the excellent guide here so that
+// non-material elements can be styled:
+// https://tomastrajan.medium.com/the-complete-guide-to-angular-material-themes-4d165a9d24d1
+// The associated Github repository contains excellent material:
+// https://github.com/tomastrajan/angular-ngrx-material-starter
 a {
   text-decoration: none;
-  color: #fff;
+  color: #a9a9a9;
 }
 
 button:hover,

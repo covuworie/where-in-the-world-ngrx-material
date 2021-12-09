@@ -18,6 +18,7 @@ import { InitEffects } from './store/effects/init.effects';
 import { UserSettingsEffects } from './store/effects/user-settings.effects';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerEffects } from './store/effects/spinner.effects';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { SpinnerEffects } from './store/effects/spinner.effects';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     HttpClientModule,
     NgxSpinnerModule,
     SharedModule,
