@@ -1,9 +1,18 @@
 <main
-  class="country-details-grid"
+  gdAreas="flag | overview | lang-money | codes | borders"
+  gdAreas.sm="flag flag overview | lang-money codes codes | borders borders borders"
+  gdAreas.gt-sm="flag overview lang-money codes | borders borders  borders  borders"
+  gdAuto="column"
+  gdGap="40rem 40rem"
   *ngIf="countryDetailFacade.country$ | async as country"
 >
-  <img class="flag" [src]="country.flagUrl" alt="{{ country.name }} flag" />
-  <div class="overview">
+  <img
+    gdArea="flag"
+    class="flag"
+    [src]="country.flagUrl"
+    alt="{{ country.name }} flag"
+  />
+  <div gdArea="overview">
     <h1 class="mat-headline">{{ country.name }}</h1>
     <mat-list role="list">
       <mat-list-item role="listitem"
@@ -28,7 +37,7 @@
       >
     </mat-list>
   </div>
-  <div class="lang-money">
+  <div gdArea="lang-money">
     <mat-list role="list">
       <mat-list-item role="listitem"
         ><b class="mat-body-2">Languages</b>:
@@ -44,7 +53,7 @@
       >
     </mat-list>
   </div>
-  <div class="codes">
+  <div gdArea="codes">
     <mat-list role="list">
       <mat-list-item role="listitem"
         ><b class="mat-body-2">Calling Code</b>:
@@ -62,9 +71,17 @@
       >
     </mat-list>
   </div>
-  <div class="borders">
-    <p><b class="mat-body-2 bordering-countries">Bordering Countries</b></p>
-    <mat-list role="list">
+  <div gdArea="borders" class="borders">
+    <p><b class="mat-body-2">Bordering Countries</b></p>
+    <!--Would be nicer to use fxLayout here with row wrap however this does
+    not seem to work here within a grid-->
+    <mat-list
+      gdColumns.gt-xs="repeat({{
+        min(country.borderingCountries.length, 8)
+      }}, max-content)"
+      gdGap.gt-xs="0 40rem"
+      role="list"
+    >
       <mat-list-item
         role="listitem"
         *ngFor="let borderingCountry of country.borderingCountries"

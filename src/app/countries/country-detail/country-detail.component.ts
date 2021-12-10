@@ -13,8 +13,12 @@ export class CountryDetailComponent implements OnInit {
   // public methods
   constructor(
     private route: ActivatedRoute,
-    public countryDetailFacade: CountryDetailFacadeService,
-  ) { }
+    public countryDetailFacade: CountryDetailFacadeService
+  ) {}
+
+  min(...values: number[]) {
+    return Math.min(...values);
+  }
 
   ngOnInit() {
     // unsubscribes automatically when the component is destroyed

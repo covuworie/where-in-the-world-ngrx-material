@@ -1,71 +1,8 @@
-$gap: 40rem;
-
-.country-details-grid {
-  display: grid;
-  grid-template-areas:
-    "flag"
-    "overview"
-    "lang-money"
-    "codes"
-    "borders";
-  margin: $gap;
-
-  @media only screen and (min-width: 800px) and (max-width: 1000px) {
-    grid-template-areas:
-      "flag flag    overview"
-      "lang-money codes codes"
-      "borders borders borders";
-    column-gap: $gap;
-    row-gap: $gap;
-  }
-
-  @media only screen and (min-width: 1000px) {
-    grid-template-areas:
-      "flag    overview lang-money codes"
-      "borders borders  borders    borders";
-    column-gap: $gap;
-    row-gap: $gap;
-  }
-}
-
 .flag {
-  grid-area: flag;
   width: 100%;
 }
 
-.overview {
-  grid-area: overview;
-  margin-bottom: $gap;
-}
-
-.lang-money {
-  grid-area: lang-money;
-  margin-bottom: $gap;
-}
-
-.codes {
-  grid-area: codes;
-  margin-bottom: $gap;
-}
-
-.borders {
-  grid-area: borders;
-  margin-bottom: $gap;
-
-  img {
-    width: 25rem;
-    padding-right: 5rem;
-  }
-
-  @media only screen and (min-width: 800px) {
-    mat-list {
-      display: flex;
-      flex-direction: row;
-    }
-
-    mat-list-item {
-      width: auto;
-      margin-right: 20rem;
-    }
-  }
+.borders img {
+  width: 25rem;
+  padding-right: 5rem;
 }
