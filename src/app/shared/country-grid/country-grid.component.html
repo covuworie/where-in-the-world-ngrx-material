@@ -1,6 +1,14 @@
-<app-country-summary
-  fxFlex.lt-md="1 1 50%"
-  fxFlex.gt-sm="1 1 25%"
-  *ngFor="let country of countries"
-  [country]="country"
-></app-country-summary>
+<div
+  fxLayout="column"
+  fxLayout.gt-xs="row wrap"
+  fxLayoutAlign="start"
+  fxLayoutGap="20rem grid"
+  class="country-grid"
+>
+  <app-country-summary
+    fxFlex.lt-md="1 1 50%"
+    fxFlex.gt-sm="1 1 25%"
+    *ngFor="let country of countries"
+    [country]="country"
+  ></app-country-summary>
+</div>
