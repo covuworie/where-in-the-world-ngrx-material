@@ -30,7 +30,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CountryGridComponent,
     HyphenateUriPipe,
     HeaderComponent,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
+    MaterialModule,
   ],
 })
 export class SharedModule {}
