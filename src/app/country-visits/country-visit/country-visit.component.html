@@ -1,6 +1,12 @@
-<fieldset [formGroup]="visit">
+<fieldset
+  fxLayout="column"
+  fxLayout.gt-xs="row"
+  fxLayoutAlign.gt-xs="space-between"
+  fxLayoutGap="20rem"
+  [formGroup]="visit"
+>
   <legend>Enter Visit</legend>
-  <mat-form-field>
+  <mat-form-field fxFlex.gt-xs="0 0 100rem">
     <mat-label>Year</mat-label>
     <input
       matInput
@@ -60,7 +66,7 @@
       Please select or enter a valid country
     </mat-error>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field fxFlex.gt-xs="0 0 100rem">
     <mat-label>Duration (days)</mat-label>
     <input
       matInput
@@ -79,6 +85,7 @@
     </mat-error>
   </mat-form-field>
   <button
+    fxFlex.gt-sm="1 1 150rem"
     class="delete"
     mat-flat-button
     color="warn"

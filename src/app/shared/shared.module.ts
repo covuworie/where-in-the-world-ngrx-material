@@ -26,6 +26,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule,
   ],
-  exports: [CountryGridComponent, HyphenateUriPipe, HeaderComponent],
+  exports: [
+    CountryGridComponent,
+    HyphenateUriPipe,
+    HeaderComponent,
+    FlexLayoutModule,
+  ],
 })
 export class SharedModule {}
