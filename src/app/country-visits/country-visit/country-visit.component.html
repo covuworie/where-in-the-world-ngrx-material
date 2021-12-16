@@ -1,97 +1,98 @@
-<fieldset
-  fxLayout="column"
-  fxLayout.gt-xs="row"
-  fxLayoutAlign.gt-xs="space-between"
-  fxLayoutGap="20rem"
-  [formGroup]="visit"
->
+<fieldset [formGroup]="visit">
   <legend>Enter Visit</legend>
-  <mat-form-field fxFlex.gt-xs="0 0 100rem">
-    <mat-label>Year</mat-label>
-    <input
-      matInput
-      required
-      type="number"
-      name="year"
-      autocomplete="off"
-      formControlName="year"
-      placeholder="Ex. 2000"
-      (change)="formChange.emit()"
-    />
-    <mat-error
-      *ngIf="
-        visit.get('year')?.hasError('required') ||
-        visit.get('year')?.hasError('min') ||
-        visit.get('year')?.hasError('max')
-      "
-    >
-      Year must be at least <strong>{{ minYear }}</strong> and at most
-      <strong>{{ currentYear }}</strong>
-    </mat-error>
-    <mat-error *ngIf="visit.hasError('forbiddenMaxDuration')">
-      Duration must be at least <strong>1</strong> and at most
-      <strong>{{ getMaxDuration(visit.value.year) }}</strong>
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label><mat-icon>search</mat-icon> Search for a country...</mat-label>
-    <input
-      type="text"
-      matInput
-      required
-      placeholder="Ex. United States"
-      formControlName="country"
-      [matAutocomplete]="autoFilterCountry"
-      (change)="setCountryAndEmit(countryInput)"
-      #countryInput
-    />
-    <mat-autocomplete
-      panelWidth="auto"
-      #autoFilterCountry="matAutocomplete"
-      (optionSelected)="setCountryAndEmit(countryInput)"
-    >
-      <mat-option
-        *ngFor="let country of filteredCountries | async"
-        [value]="country"
-      >
-        {{ country }}
-      </mat-option>
-    </mat-autocomplete>
-    <mat-error
-      *ngIf="
-        visit.get('country')?.hasError('required') ||
-        visit.get('country')?.hasError('forbiddenCountry')
-      "
-    >
-      Please select or enter a valid country
-    </mat-error>
-  </mat-form-field>
-  <mat-form-field fxFlex.gt-xs="0 0 100rem">
-    <mat-label>Duration (days)</mat-label>
-    <input
-      matInput
-      required
-      type="number"
-      name="duration"
-      autocomplete="off"
-      formControlName="duration"
-      placeholder="Ex. 10"
-      [errorStateMatcher]="maxDurationMatcher"
-      (change)="formChange.emit()"
-    />
-    <mat-error>
-      Duration must be at least <strong>1</strong> and at most
-      <strong>{{ getMaxDuration(visit.value.year) }}</strong>
-    </mat-error>
-  </mat-form-field>
-  <button
-    fxFlex.gt-sm="1 1 150rem"
-    class="delete"
-    mat-flat-button
-    color="warn"
-    type="button"
-    (click)="delete.emit()"
+  <div
+    fxLayout="column"
+    fxLayout.gt-xs="row"
+    fxLayoutAlign.gt-xs="space-between"
+    fxLayoutGap="20rem"
+    fxLayout.gt-xs="row"
   >
-    Delete
-  </button>
+    <mat-form-field fxFlex.gt-xs="0 0 100rem">
+      <mat-label>Year</mat-label>
+      <input
+        matInput
+        required
+        type="number"
+        name="year"
+        autocomplete="off"
+        formControlName="year"
+        placeholder="Ex. 2000"
+        (change)="formChange.emit()"
+      />
+      <mat-error
+        *ngIf="
+          visit.get('year')?.hasError('required') ||
+          visit.get('year')?.hasError('min') ||
+          visit.get('year')?.hasError('max')
+        "
+      >
+        Year must be at least <strong>{{ minYear }}</strong> and at most
+        <strong>{{ currentYear }}</strong>
+      </mat-error>
+      <mat-error *ngIf="visit.hasError('forbiddenMaxDuration')">
+        Duration must be at least <strong>1</strong> and at most
+        <strong>{{ getMaxDuration(visit.value.year) }}</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label><mat-icon>search</mat-icon> Search for a country...</mat-label>
+      <input
+        type="text"
+        matInput
+        required
+        placeholder="Ex. United States"
+        formControlName="country"
+        [matAutocomplete]="autoFilterCountry"
+        (change)="setCountryAndEmit(countryInput)"
+        #countryInput
+      />
+      <mat-autocomplete
+        panelWidth="auto"
+        #autoFilterCountry="matAutocomplete"
+        (optionSelected)="setCountryAndEmit(countryInput)"
+      >
+        <mat-option
+          *ngFor="let country of filteredCountries | async"
+          [value]="country"
+        >
+          {{ country }}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error
+        *ngIf="
+          visit.get('country')?.hasError('required') ||
+          visit.get('country')?.hasError('forbiddenCountry')
+        "
+      >
+        Please select or enter a valid country
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field fxFlex.gt-xs="0 0 100rem">
+      <mat-label>Duration (days)</mat-label>
+      <input
+        matInput
+        required
+        type="number"
+        name="duration"
+        autocomplete="off"
+        formControlName="duration"
+        placeholder="Ex. 10"
+        [errorStateMatcher]="maxDurationMatcher"
+        (change)="formChange.emit()"
+      />
+      <mat-error>
+        Duration must be at least <strong>1</strong> and at most
+        <strong>{{ getMaxDuration(visit.value.year) }}</strong>
+      </mat-error>
+    </mat-form-field>
+    <button
+      fxFlex.gt-sm="1 1 150rem"
+      mat-flat-button
+      color="warn"
+      type="button"
+      (click)="delete.emit()"
+    >
+      Delete
+    </button>
+  </div>
 </fieldset>
