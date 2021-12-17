@@ -2,11 +2,12 @@
   <legend>Enter Visit</legend>
   <div
     fxLayout="column"
-    fxLayout.gt-xs="row"
+    fxLayout.gt-xs="row wrap"
     fxLayoutAlign.gt-xs="space-between center"
     fxLayoutGap="20rem"
+    fxFill
   >
-    <mat-form-field fxFlex.gt-xs="0 0 100rem">
+    <mat-form-field fxFlex.gt-xs="10">
       <mat-label>Year</mat-label>
       <input
         matInput
@@ -33,7 +34,7 @@
         <strong>{{ getMaxDuration(visit.value.year) }}</strong>
       </mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field fxFlex.gt-xs="25">
       <mat-label><mat-icon>search</mat-icon> Search for a country...</mat-label>
       <input
         type="text"
@@ -66,7 +67,7 @@
         Please select or enter a valid country
       </mat-error>
     </mat-form-field>
-    <mat-form-field fxFlex.gt-xs="0 0 100rem">
+    <mat-form-field fxFlex.gt-xs="10">
       <mat-label>Duration (days)</mat-label>
       <input
         matInput
@@ -85,7 +86,7 @@
       </mat-error>
     </mat-form-field>
     <button
-      fxFlex.gt-sm="1 1 150rem"
+      fxFlex.gt-sm="12"
       mat-flat-button
       color="warn"
       type="button"
