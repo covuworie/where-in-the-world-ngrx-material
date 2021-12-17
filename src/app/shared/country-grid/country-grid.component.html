@@ -3,11 +3,10 @@
   fxLayout.gt-xs="row wrap"
   fxLayoutAlign="start"
   fxLayoutGap="20rem grid"
+  gdColumns="repeat(auto-fill, minmax(250px, 1fr))"
   class="country-grid"
 >
   <app-country-summary
-    fxFlex.lt-md="50"
-    fxFlex.gt-sm="25"
     *ngFor="let country of countries"
     [country]="country"
   ></app-country-summary>
